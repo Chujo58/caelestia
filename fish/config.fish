@@ -7,7 +7,8 @@
     command -v zoxide &> /dev/null && zoxide init fish --cmd cd | source
 
     # Better ls
-    alias ls='eza --icons --group-directories-first -1'
+    functions -e ls
+    alias ls='eza --icons'
 
     # Abbrs
     abbr gd 'git diff'
