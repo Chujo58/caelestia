@@ -11,6 +11,7 @@
     alias ls='eza --icons'
 
     # Abbrs
+    abbr lg 'lazygit'
     abbr gd 'git diff'
     abbr ga 'git add .'
     abbr gc 'git commit -am'
