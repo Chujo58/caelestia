@@ -63,3 +63,9 @@ if not pgrep --full "ssh-agent" >//dev/null
 	eval (ssh-agent -c)
 	ssh-add ~/.ssh/id_ed25519
 end
+
+# Created by `pipx` on 2025-10-28 16:29:26
+set PATH $PATH /home/chujo/.local/bin
+
+# Add bin to path
+fish_add_path ~/bin
