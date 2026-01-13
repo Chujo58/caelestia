@@ -509,7 +509,7 @@
     }
   },
   "services": {
-    "weatherLocation": "45.5019,-73.5674",
+    "weatherLocation": "48.40675,1.48739",
     "useFahrenheit": false,
     "useTwelveHourClock": true,
     "gpuType": "",
