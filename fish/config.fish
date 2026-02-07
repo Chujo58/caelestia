@@ -14,7 +14,7 @@
     abbr lg 'lazygit'
     abbr gd 'git diff'
     abbr ga 'git add .'
-    abbr gc 'git commit -am'
+    abbr gc 'git commit -m'
     abbr gl 'git log'
     abbr gs 'git status'
     abbr gst 'git stash'

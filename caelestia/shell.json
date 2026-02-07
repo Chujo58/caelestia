@@ -21,6 +21,8 @@
       }
     },
     "anim": {
+      "mediaGifSpeedAdjustment": 300,
+      "sessionGifSpeed": 0.7,
       "durations": {
         "scale": 1
       }
@@ -32,6 +34,7 @@
     }
   },
   "general": {
+    "logo": "caelestia",
     "apps": {
       "terminal": [
         "foot"
@@ -96,7 +99,20 @@
   "background": {
     "enabled": true,
     "desktopClock": {
-      "enabled": false
+      "enabled": true,
+      "scale": 1,
+      "position": "bottom-right",
+      "invertColors": false,
+      "background": {
+        "enabled": false,
+        "opacity": 0.7,
+        "blur": true
+      },
+      "shadow": {
+        "enabled": true,
+        "opacity": 0.7,
+        "blur": 0.4
+      }
     },
     "visualiser": {
       "enabled": false,
@@ -123,7 +139,7 @@
     "workspaces": {
       "shown": 5,
       "activeIndicator": true,
-      "occupiedBg": false,
+      "occupiedBg": true,
       "showWindows": true,
       "showWindowsOnSpecialWorkspaces": true,
       "activeTrail": false,
@@ -140,16 +156,17 @@
       ]
     },
     "tray": {
-      "background": false,
+      "background": true,
       "recolour": false,
       "compact": false,
       "iconSubs": []
     },
     "status": {
-      "showAudio": false,
+      "showAudio": true,
       "showMicrophone": false,
       "showKbLayout": true,
       "showNetwork": true,
+      "showWifi": false,
       "showBluetooth": true,
       "showBattery": true,
       "showLockStatus": true
@@ -201,7 +218,8 @@
         "enabled": true,
         "id": "power"
       }
-    ]
+    ],
+    "excludedScreens": ["DP-2"]
   },
   "border": {
     "thickness": 10,
@@ -509,12 +527,13 @@
     }
   },
   "services": {
-    "weatherLocation": "48.40675,1.48739",
+    "weatherLocation": "45.5266995,-73.5782462",
     "useFahrenheit": false,
     "useTwelveHourClock": true,
     "gpuType": "",
     "visualiserBars": 45,
     "audioIncrement": 0.1,
+    "brightnessIncrement": 0.1,
     "maxVolume": 1,
     "smartScheme": true,
     "defaultPlayer": "Spotify",
