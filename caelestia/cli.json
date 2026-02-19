@@ -1,0 +1,29 @@
+{
+    "toggles": {
+        "music": {
+            "spotify": {
+                "enable": false
+            },
+            "feishin": {
+                "enable": true,
+                "match": [{ "class": "feishin" }],
+                "command": [
+                    "/home/chujo/.local/share/applications/org.jeffvli.feishin.desktop"
+                ],
+                "move": true
+            }
+        },
+        "calendar": {
+            "google": {
+                "enable": true,
+                "match": [
+                    { "class": "chrome-calendar.google.com__calendar-Default" }
+                ],
+                "command": [
+                    "/home/chujo/.local/share/applications/WebApp-Calendar4585.desktop"
+                ],
+                "move": true
+            }
+        }
+    }
+}
