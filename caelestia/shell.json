@@ -98,6 +98,7 @@
   },
   "background": {
     "enabled": true,
+    "wallpaperEnabled": true,
     "desktopClock": {
       "enabled": true,
       "scale": 1,
@@ -155,7 +156,7 @@
         },
         {
           "icon": "calendar_today",
-          "name": "calendar"
+          "name": "google"
         }
       ]
     },
@@ -236,8 +237,15 @@
   "dashboard": {
     "enabled": true,
     "showOnHover": true,
-    "mediaUpdateInterval": 500,
     "dragThreshold": 50,
+    "performance": {
+      "showBattery": true,
+      "showGpu": true,
+      "showCpu": true,
+      "showMemory": true,
+      "showStorage": true,
+      "showNetwork": true
+    },
     "sizes": {
       "tabIndicatorHeight": 3,
       "tabIndicatorSpacing": 5,
@@ -270,6 +278,13 @@
     "enableDangerousActions": false,
     "dragThreshold": 50,
     "vimKeybinds": false,
+    "favouriteApps": [
+      "zen",
+      "slack",
+      "pandora-launcher",
+      "discord",
+      "feishin"
+    ],
     "hiddenApps": [
       "nautilus"
     ],
@@ -461,6 +476,12 @@
     "enabled": true,
     "dragThreshold": 30,
     "vimKeybinds": false,
+    "icons": {
+      "logout": "logout",
+      "shutdown": "power_settings_new",
+      "hibernate": "downloading",
+      "reboot": "cached"
+    },
     "commands": {
       "logout": [
         "loginctl",
@@ -537,6 +558,7 @@
   "services": {
     "weatherLocation": "45.5266995,-73.5782462",
     "useFahrenheit": false,
+    "useFahrenheitPerformance": false,
     "useTwelveHourClock": true,
     "gpuType": "",
     "visualiserBars": 45,
