@@ -7,23 +7,40 @@
             "feishin": {
                 "enable": true,
                 "match": [{ "class": "feishin" }],
-                "command": [
-                    "/home/chujo/.local/share/applications/org.jeffvli.feishin.desktop"
-                ],
+                "move": true
+            },
+            "soundcloud": {
+                "enable": true,
+                "match": [{"class": "chrome-soundcloud.com__-Default"}],
                 "move": true
             }
         },
-        "calendar": {
-            "google": {
+        "google": {
+            "calendar": {
                 "enable": true,
                 "match": [
-                    { "class": "chrome-calendar.google.com__calendar-Default" }
+                    { "class": "chrome-calendar.google.com__calendar-Default"
+                    }
                 ],
-                "command": [
-                    "/home/chujo/.local/share/applications/WebApp-Calendar4585.desktop"
-                ],
+
+                "move": true
+            },
+            "mail": {
+                "enable": true,
+                "match": [{ "class": "chrome-mail.google.com__mail_-Default" }],
+
+                "move": true
+            }
+        },
+        "steam": {
+            "steamapp": {
+                "enable": true,
+                "match": [{ "class": "steam" }],
                 "move": true
             }
         }
+    },
+    "wallpaper": {
+        "postHook": "swww img \"$WALLPAPER_PATH\" --transition-type grow --transition-pos center --transition-duration 2 "  
     }
 }
