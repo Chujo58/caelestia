@@ -38,6 +38,13 @@
                 "match": [{ "class": "steam" }],
                 "move": true
             }
+        },
+        "onTogether": {
+            "game": {
+                "enable": true,
+                "match": [{ "class": "steam_app_3707400" }],
+                "move": true
+            }
         }
     },
     "wallpaper": {
