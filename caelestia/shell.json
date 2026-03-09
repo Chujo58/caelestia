@@ -157,6 +157,10 @@
         {
           "icon": "calendar_today",
           "name": "google"
+        },
+        { 
+          "icon": "sports_esports", 
+          "name": "onTogether"
         }
       ]
     },
@@ -285,7 +289,8 @@
       "discord",
       "feishin",
       "org.jeffvli.feishin",
-      "WebApp-SoundCloud8337"
+      "WebApp-SoundCloud8337",
+      "code"
     ],
     "hiddenApps": [
       "nautilus",
@@ -560,7 +565,7 @@
     }
   },
   "services": {
-    "weatherLocation": "45.5266995,-73.5782462",
+    "weatherLocation": "Montréal",
     "useFahrenheit": false,
     "useFahrenheitPerformance": false,
     "useTwelveHourClock": true,
