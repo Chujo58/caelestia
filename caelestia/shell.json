@@ -241,6 +241,8 @@
   "dashboard": {
     "enabled": true,
     "showOnHover": true,
+    "mediaUpdateInterval": 500,
+    "resourceUpdateInterval": 5000,
     "dragThreshold": 50,
     "performance": {
       "showBattery": true,
