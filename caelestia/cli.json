@@ -7,7 +7,8 @@
             "feishin": {
                 "enable": true,
                 "match": [{ "class": "feishin" }],
-                "move": true
+                "move": true,
+                "command": ["/home/chujo/Applications/Feishin-linux-x86_64.AppImage"]
             },
             "soundcloud": {
                 "enable": true,
@@ -35,14 +36,14 @@
         "steam": {
             "steamapp": {
                 "enable": true,
-                "match": [{ "class": "steam" }],
+                "match": [{ "title": "Steam" }],
                 "move": true
             }
         },
-        "onTogether": {
+        "on_together": {
             "game": {
                 "enable": true,
-                "match": [{ "class": "steam_app_3707400" }],
+                "match": [{ "initialTitle": "On-Together" }],
                 "move": true
             }
         }
