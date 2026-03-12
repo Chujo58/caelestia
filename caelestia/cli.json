@@ -17,6 +17,14 @@
             }
         },
         "google": {
+            "routine": {
+                "enable": true,
+                "match": [{
+                    "class": "Routine"
+                }],
+                "move": true,
+                "command": ["/home/chujo/Applications/Routine.AppImage"]
+            },
             "calendar": {
                 "enable": true,
                 "match": [
