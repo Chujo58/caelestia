@@ -22,8 +22,7 @@
                 "match": [{
                     "class": "Routine"
                 }],
-                "move": true,
-                "command": ["/home/chujo/Applications/Routine.AppImage"]
+                "move": true
             },
             "calendar": {
                 "enable": true,
@@ -52,6 +51,18 @@
             "game": {
                 "enable": true,
                 "match": [{ "initialTitle": "On-Together" }],
+                "move": true
+            }
+        },
+        "todo": {
+            "todoist": {
+                "enable": true,
+                "match": [{ "class": "Todoist" }],
+                "move": true
+            },
+            "notion": {
+                "enable": true,
+                "match": [{ "class": "chrome-www.notion.so__-Default" }],
                 "move": true
             }
         }
