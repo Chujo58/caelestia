@@ -68,6 +68,6 @@
         }
     },
     "wallpaper": {
-        "postHook": "swww img \"$WALLPAPER_PATH\" --transition-type grow --transition-pos center --transition-duration 2 "  
+        "postHook": "awww img \"$WALLPAPER_PATH\" --transition-type grow --transition-pos center --transition-duration 2 "  
     }
 }

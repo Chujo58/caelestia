@@ -210,3 +210,23 @@ toolbar .toolbarbutton-1 {
         scale: 0.95 !important;
     }
 }
+
+/* --- KILL THE UGLY BUTTONS --- */
+
+/* Hide the minimize, maximize, and close buttons globally */
+.titlebar-buttonbox-container, 
+.titlebar-buttonbox, 
+#window-controls, 
+.window-controls {
+    display: none !important;
+}
+
+/* Force Zen's internal 'compact' mode to hide the titlebar space */
+#TabsToolbar .titlebar-spacer {
+    display: none !important;
+}
+
+/* If you use Zen's vertical tabs, this hides the buttons there too */
+#zen-window-controls {
+    display: none !important;
+}

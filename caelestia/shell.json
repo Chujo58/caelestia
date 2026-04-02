@@ -239,8 +239,8 @@
     ],
     "excludedScreens": [
       "DP-1",
-      "DP-2",
-      "DP-3"
+      "DP-3",
+      "DP-2"
     ]
   },
   "border": {
@@ -471,11 +471,13 @@
   },
   "notifs": {
     "expire": true,
+    "fullscreen": "on",
     "defaultExpireTimeout": 5000,
     "clearThreshold": 0.3,
     "expandThreshold": 20,
     "actionOnClick": false,
-    "groupPreviewNum": 3
+    "groupPreviewNum": 3,
+    "openExpanded": false
   },
   "osd": {
     "enabled": true,
@@ -525,6 +527,7 @@
     "maxToasts": 4,
     "toasts": {
       "configLoaded": true,
+      "fullscreen": "important",
       "chargingChanged": true,
       "gameModeChanged": true,
       "dndChanged": true,
@@ -539,7 +542,7 @@
     "vpn": {
       "enabled": false,
       "provider": [
-        "netbird"
+        {}
       ]
     },
     "quickToggles": [
@@ -578,7 +581,7 @@
     "dragThreshold": 80
   },
   "services": {
-    "weatherLocation": "Montréal",
+    "weatherLocation": "45.5307485593049, -73.57909036328945",
     "useFahrenheit": false,
     "useFahrenheitPerformance": false,
     "useTwelveHourClock": true,
@@ -595,7 +598,8 @@
         "to": "YT Music"
       }
     ],
-    "showLyrics": true
+    "showLyrics": true,
+    "lyricsBackend": "Auto"
   },
   "paths": {
     "wallpaperDir": "/home/chujo/Pictures/Wallpapers",
