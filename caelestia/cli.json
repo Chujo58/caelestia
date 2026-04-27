@@ -65,6 +65,19 @@
                 "match": [{ "class": "chrome-www.notion.so__-Default" }],
                 "move": true
             }
+        },
+        "communication": {
+            "discord": {
+                "enable": true,
+                "match": [{ "class": "discord" }],
+                "command": ["discord"],
+                "move": true
+            },
+            "slack": {
+                "enable": true,
+                "match": [{"class": "slack"}],
+                "move": true
+            }
         }
     },
     "wallpaper": {
