@@ -48,7 +48,7 @@
                 "opacity": 0.7
             }
         },
-        "enabled": false,
+        "enabled": true,
         "visualiser": {
             "autoHide": true,
             "blur": false,
