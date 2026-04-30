@@ -81,6 +81,6 @@
         }
     },
     "wallpaper": {
-        "postHook": "awww img \"$WALLPAPER_PATH\" --transition-type grow --transition-pos center --transition-duration 2 "  
+        "postHook": "~/.config/caelestia/posthook.sh"  
     }
 }

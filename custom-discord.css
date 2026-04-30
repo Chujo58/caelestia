@@ -1,0 +1,75 @@
+:root {
+    --accent-new: var(--blue-1);
+}
+
+body {
+    --top-bar-button-position: titlebar;
+    --dms-icon-color-before: var(--text-5);
+    --dms-icon-color-after: var(--text-1);
+    --custom-dms-background: color;
+    --dms-background-color: var(--bg-1);
+    --white: #fff;
+    --always-white: var(--white);
+}
+
+.leading_c38106 {
+    display: none;
+}
+
+.winButtons_c38106 {
+    display: none;
+}
+
+.toolbar__9293f {
+    padding-right: calc(30px + var(--space-xs));
+}
+
+.selected__9293f .icon__9293f {
+    color: var(--icon-muted);
+}
+
+.hljs {
+    padding: .5em .75em;
+}
+
+.theme-dark .bd-addon-store-card {
+    background: var(--bg-3);
+}
+
+.theme-dark .bd-addon-store-card-author-mask {
+    background-color: var(--border);
+}
+
+.theme-dark .bd-addon-store-card-tag {
+    border-color: var(--border);
+}
+
+.theme-dark .bd-button-filled.bd-button-color-brand {
+    background-color: var(--blue-1);
+}
+
+.buttons__74017 > div:first-of-type,
+.buttons__74017 > div:last-of-type {
+    display: none;
+}
+
+.toast_67c5da .inner_67c5da {
+    color: var(--bg-5);
+}
+
+.endCap__908e2 {
+    color: var(--bg-3);
+}
+
+.inlineCode_ada32f {
+    color: var(--blue-1);
+}
+
+/* A more robust selector for all icon badges in the sidebar */
+[class*="iconBadge_"] [class*="icon_"] path {
+    fill: var(--blue-1) !important;
+}
+
+[class*="iconBadge_"] {
+    background-color: color-mix(in srgb, var(--blue-1) 25%, var(--bg-1) 75%) !important;
+}
