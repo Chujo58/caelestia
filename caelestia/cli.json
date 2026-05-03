@@ -8,27 +8,30 @@
                 "enable": true,
                 "match": [{ "class": "feishin" }],
                 "move": true,
-                "command": ["/home/chujo/Applications/Feishin-linux-x86_64.AppImage"]
+                "command": [
+                    "/home/chujo/Applications/Feishin-linux-x86_64.AppImage"
+                ]
             },
             "soundcloud": {
                 "enable": true,
-                "match": [{"class": "chrome-soundcloud.com__-Default"}],
+                "match": [{ "class": "chrome-soundcloud.com__-Default" }],
                 "move": true
             }
         },
         "google": {
             "routine": {
                 "enable": true,
-                "match": [{
-                    "class": "Routine"
-                }],
+                "match": [
+                    {
+                        "class": "Routine"
+                    }
+                ],
                 "move": true
             },
             "calendar": {
                 "enable": true,
                 "match": [
-                    { "class": "chrome-calendar.google.com__calendar-Default"
-                    }
+                    { "class": "chrome-calendar.google.com__calendar-Default" }
                 ],
 
                 "move": true
@@ -75,12 +78,15 @@
             },
             "slack": {
                 "enable": true,
-                "match": [{"class": "slack"}],
+                "match": [{ "class": "slack" }],
                 "move": true
             }
         }
     },
     "wallpaper": {
-        "postHook": "~/.config/caelestia/posthook.sh"  
+        "postHook": "~/.config/caelestia/posthooks/wallpaper.sh"
+    },
+    "theme": {
+        "postHook": "~/.config/caelestia/posthooks/theme.sh"
     }
 }
