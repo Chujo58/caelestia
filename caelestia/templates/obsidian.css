@@ -121,6 +121,12 @@
     --graph-line:           #{{outlineVariant.hex}};
     --graph-background:     #{{background.hex}};
 
+
+    /* ── Ribbon (left sidebar) ───────────────────────────── */
+    --ribbon-background: var(--background-primary);
+
+    --header-height: 4vh;
+
     /* ── Scalable M3 Shape Tokens ── */
     --m3-radius-none: 0;
     --m3-radius-xs:   0.25rem; /* 4px  */
@@ -129,6 +135,8 @@
     --m3-radius-l:    1rem;    /* 16px */
     --m3-radius-xl:   1.75rem; /* 28px (The M3 "Big Round") */
     --m3-radius-full: 99rem;   /* Infinite rounding for pills */
+
+    
 }
 
 /* ── Active line highlight ───────────────────── */
@@ -147,8 +155,9 @@
 }
 
 /* Ribbon (Far left icon bar) active state */
-.side-dock-ribbon-action {
-    border-radius: var(--m3-radius-xl);
+.side-dock-ribbon-action,
+.nav-action-button {
+    border-radius: var(--m3-radius-full);
     padding: 0.5em;
 }
 
@@ -160,3 +169,14 @@
 .side-dock-ribbon-action.is-active:hover {
     background-color: color-mix(in srgb, {{primary.rgb}} 27%, transparent);
 }
+
+/* .sidebar-toggle-button {
+    border-radius: var(--m3-radius-full) !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.workspace-tab-header-container-inner > .workspace-tab-header {
+    padding: 0.5em 0.25em !important;
+    border-radius: var(--m3-radius-full) !important;
+    margin: 0 0.25em !important;
+} */
