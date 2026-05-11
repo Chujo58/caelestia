@@ -67,6 +67,12 @@
                 "enable": true,
                 "match": [{ "class": "chrome-www.notion.so__-Default" }],
                 "move": true
+            },
+            "obsidian": {
+                "enable": true,
+                "match": [{"class": "obsidian"}],
+                "move": true,
+                "command": ["obsidian"]
             }
         },
         "communication": {
@@ -79,6 +85,11 @@
             "slack": {
                 "enable": true,
                 "match": [{ "class": "slack" }],
+                "move": true
+            },
+            "zapzap": {
+                "enable": true,
+                "match": [{"class": "com.rtosta.zapzap"}],
                 "move": true
             }
         }

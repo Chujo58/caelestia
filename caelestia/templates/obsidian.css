@@ -1,0 +1,162 @@
+/* Material You (Standard Token Format) Obsidian Snippet */
+
+.theme-dark, .theme-light {
+  /* ── Core Backgrounds ─────────────────────── */
+    --background-primary:           #{{background.hex}};
+    --background-primary-alt:       #{{surfaceDim.hex}};
+    --background-secondary:         #{{surfaceContainerLow.hex}};
+    --background-secondary-alt:     #{{surfaceContainer.hex}};
+
+    /* ── Titlebar ─────────────────────────────── */
+    --titlebar-background:          #{{surfaceDim.hex}};
+    --titlebar-background-focused:  #{{surfaceContainerLow.hex}};
+    --titlebar-text-color:          #{{onSurface.hex}};
+
+    /* ── Borders & Dividers ───────────────────── */
+    --background-modifier-border:         #{{outlineVariant.hex}};
+    --background-modifier-border-focus:   #{{outline.hex}};
+    --background-modifier-border-hover:   #{{outline.hex}};
+
+    /* ── Text Colors ──────────────────────────── */
+    --text-normal:      #{{onSurface.hex}};
+    --text-muted:       #{{onSurfaceVariant.hex}};
+    --text-faint:       #{{outline.hex}};
+    --text-on-accent:   #{{onPrimary.hex}};
+    --text-selection:   color-mix(in srgb, {{primary.rgb}} 25%, transparent);
+
+    /* ── Accent & Interactive ─────────────────── */
+    --interactive-accent:           #{{primary.hex}};
+    --interactive-accent-hover:     #{{primaryContainer.hex}};
+    --interactive-accent-rgb:       {{primary.rgb}};
+    --text-accent:                  #{{primary.hex}};
+    --text-accent-hover:            #{{primaryContainer.hex}};
+
+    /* ── Hover & Active ───────────────────────── */
+    --background-modifier-hover:          color-mix(in srgb, {{onSurface.rgb}} 6%, transparent);
+    --background-modifier-active-hover:   color-mix(in srgb, {{primary.rgb}} 15%, transparent);
+    --background-modifier-success:        #{{tertiaryContainer.hex}};
+    --background-modifier-error:          #{{errorContainer.hex}};
+    --background-modifier-error-hover:    #{{error.hex}};
+
+    /* ── Obsidian Base Scale ──────────────────── */
+    --color-base-00:    #{{background.hex}};
+    --color-base-05:    #{{surfaceDim.hex}};
+    --color-base-10:    #{{surfaceContainerLowest.hex}};
+    --color-base-20:    #{{surfaceContainerLow.hex}};
+    --color-base-25:    #{{surfaceContainer.hex}};
+    --color-base-30:    #{{surfaceContainerHigh.hex}};
+    --color-base-35:    #{{surfaceContainerHighest.hex}};
+    --color-base-40:    #{{outlineVariant.hex}};
+    --color-base-50:    #{{outline.hex}};
+    --color-base-60:    #{{onSurfaceVariant.hex}};
+    --color-base-70:    #{{onSurface.hex}};
+    --color-base-100:   #{{inverseSurface.hex}};
+
+    /* ── Semantic Colors ──────────────────────── */
+    --color-red:        #{{error.hex}};
+    --color-orange:     #{{tertiary.hex}};
+    --color-yellow:     #{{secondary.hex}};
+    --color-green:      #{{tertiaryContainer.hex}};
+    --color-cyan:       #{{secondaryContainer.hex}};
+    --color-blue:       #{{primary.hex}};
+    --color-purple:     #{{secondary.hex}};
+    --color-pink:       #{{tertiary.hex}};
+
+    /* ── Headings ─────────────────────────────── */
+    --h1-color:     #{{primary.hex}};
+    --h2-color:     #{{primary.hex}};
+    --h3-color:     #{{secondary.hex}};
+    --h4-color:     #{{tertiary.hex}};
+    --h5-color:     #{{onSurfaceVariant.hex}};
+    --h6-color:     #{{outline.hex}};
+
+    /* ── Links ────────────────────────────────── */
+    --link-color:           #{{primary.hex}};
+    --link-color-hover:     #{{onPrimaryContainer.hex}};
+    --link-external-color:  #{{tertiary.hex}};
+    --link-unresolved-color: #{{outline.hex}};
+
+    /* ── Tags ─────────────────────────────────── */
+    --tag-color:            #{{onPrimaryContainer.hex}};
+    --tag-background:       #{{primaryContainer.hex}};
+    --tag-border-color:     #{{primary.hex}};
+    --tag-color-hover:      #{{onPrimary.hex}};
+    --tag-background-hover: #{{primary.hex}};
+
+    /* ── Checkboxes ───────────────────────────── */
+    --checkbox-color:           #{{primary.hex}};
+    --checkbox-color-hover:     #{{primaryContainer.hex}};
+    --checkbox-border-color:    #{{outline.hex}};
+    --checkbox-marker-color:    #{{onPrimary.hex}};
+
+    /* ── Code Blocks ──────────────────────────── */
+    --code-background:  #{{surfaceContainerLow.hex}};
+    --code-normal:      #{{onSurface.hex}};
+    --code-comment:     #{{outline.hex}};
+    --code-function:    #{{primary.hex}};
+    --code-important:   #{{error.hex}};
+    --code-keyword:     #{{secondary.hex}};
+    --code-operator:    #{{tertiary.hex}};
+    --code-property:    #{{onSurfaceVariant.hex}};
+    --code-punctuation: #{{outlineVariant.hex}};
+    --code-string:      #{{tertiary.hex}};
+    --code-tag:         #{{error.hex}};
+    --code-value:       #{{secondary.hex}};
+
+    /* ── Scrollbar ────────────────────────────── */
+    --scrollbar-thumb-bg:           color-mix(in srgb, {{onSurface.rgb}} 12%, transparent);
+    --scrollbar-active-thumb-bg:    color-mix(in srgb, {{onSurface.rgb}} 25%, transparent);
+    --scrollbar-bg:                 transparent;
+
+    /* ── Inputs ───────────────────────────────── */
+    --input-shadow: none;
+    --input-shadow-hover: 0 0 0 2px #{{outline.hex}};
+
+    /* ── Graph View ───────────────────────────── */
+    --graph-node:           #{{primary.hex}};
+    --graph-node-unresolved: #{{outline.hex}};
+    --graph-node-focused:   #{{onPrimaryContainer.hex}};
+    --graph-node-tag:       #{{secondary.hex}};
+    --graph-node-attachment: #{{tertiary.hex}};
+    --graph-line:           #{{outlineVariant.hex}};
+    --graph-background:     #{{background.hex}};
+
+    /* ── Scalable M3 Shape Tokens ── */
+    --m3-radius-none: 0;
+    --m3-radius-xs:   0.25rem; /* 4px  */
+    --m3-radius-s:    0.5rem;  /* 8px  */
+    --m3-radius-m:    0.75rem; /* 12px */
+    --m3-radius-l:    1rem;    /* 16px */
+    --m3-radius-xl:   1.75rem; /* 28px (The M3 "Big Round") */
+    --m3-radius-full: 99rem;   /* Infinite rounding for pills */
+}
+
+/* ── Active line highlight ───────────────────── */
+.cm-active {
+    background-color: color-mix( in srgb, {{onTertiary.rgb}} 3%, transparent) !important;
+}
+
+
+/* Sidebar File & Folder Styling */
+.nav-file-title, 
+.nav-folder-title {
+    /* Using rem ensures the pill height scales with the text size */
+    border-radius: var(--m3-radius-full) !important;
+    margin-bottom: 0.2em; 
+    padding: 0.3em 1.2em;
+}
+
+/* Ribbon (Far left icon bar) active state */
+.side-dock-ribbon-action {
+    border-radius: var(--m3-radius-xl);
+    padding: 0.5em;
+}
+
+.side-dock-ribbon-action.is-active {
+    background-color: var(--background-modifier-active-hover);
+    color: var(--text-accent);
+}
+
+.side-dock-ribbon-action.is-active:hover {
+    background-color: color-mix(in srgb, {{primary.rgb}} 27%, transparent);
+}

@@ -41,8 +41,8 @@ alias config="cd ~/.local/share/caelestia; code .; exit"
 # Mounting aliases:
 ## CANFAR:
 alias mount_arc='sshfs clegue@ws-uv.canfar.net:/ $HOME/mounts/canfar -p 64022 -o reconnect -o cache=yes -o kernel_cache -o auto_cache -o attr_timeout=120 -o entry_timeout=120 -o negative_timeout=60 -o compression=no'
-# alias mount_arc='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=10 -p 64022 clegue@ws-uv.canfar.net:/ $HOME/mounts/canfar'
 alias unmount_arc='umount $HOME/mounts/canfar'
+# alias mount_arc='sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=10 -p 64022 clegue@ws-uv.canfar.net:/ $HOME/mounts/canfar'
 
 ## Windows partition:
 alias mount_win='sudo mount -t ntfs-3g /dev/nvme0n1p3 $HOME/mounts/windows/'
