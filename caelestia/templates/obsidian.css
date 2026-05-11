@@ -156,7 +156,9 @@
 
 /* Ribbon (Far left icon bar) active state */
 .side-dock-ribbon-action,
-.nav-action-button {
+.nav-action-button,
+.view-header-nav-buttons > .clickable-icon,
+.view-actions > .clickable-icon {
     border-radius: var(--m3-radius-full);
     padding: 0.5em;
 }
