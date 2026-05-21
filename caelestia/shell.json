@@ -243,19 +243,19 @@
             "timeouts": [
                 {
                     "idleAction": "lock",
-                    "timeout": 180
+                    "timeout": 450
                 },
                 {
                     "idleAction": "dpms off",
                     "returnAction": "dpms on",
-                    "timeout": 300
+                    "timeout": 900
                 },
                 {
                     "idleAction": [
                         "systemctl",
                         "suspend"
                     ],
-                    "timeout": 600
+                    "timeout": 1800
                 }
             ]
         },
@@ -500,6 +500,10 @@
     "services": {
         "audioIncrement": 0.1,
         "brightnessIncrement": 0.1,
+        "calendar": {
+            "command": "gws",
+            "enabled": true
+        },
         "defaultPlayer": "feishin",
         "gpuType": "",
         "lyricsBackend": "Auto",

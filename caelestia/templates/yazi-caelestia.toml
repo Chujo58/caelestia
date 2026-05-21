@@ -1,0 +1,921 @@
+# : Manager [[[
+
+[mgr]
+cwd = { fg = "#{{ onSurface.hex }}" }
+
+# Find
+find_keyword  = { fg = "#{{ error.hex }}", bold = true, italic = true, underline = true }
+find_position = { fg = "#{{ error.hex }}", bold = true, italic = true }
+
+# Marker
+marker_copied   = { fg = "#{{ tertiaryFixed.hex }}", bg = "#{{ tertiaryFixed.hex }}" }
+marker_cut      = { fg = "#{{ tertiaryFixed.hex }}", bg = "#{{ tertiaryFixed.hex }}" }
+marker_marked   = { fg = "#{{ error.hex }}", bg = "#{{ error.hex }}" }
+marker_selected = { fg = "#{{ tertiary.hex }}", bg = "#{{ tertiary.hex }}" }
+
+# Count
+count_copied   = { fg = "#{{ onTertiaryFixed.hex }}", bg = "#{{ tertiaryFixed.hex }}" }
+count_cut      = { fg = "#{{ onTertiaryFixed.hex }}", bg = "#{{ tertiaryFixed.hex }}" }
+count_selected = { fg = "#{{ onPrimary.hex }}", bg = "#{{ tertiary.hex }}" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#{{ surfaceTint.hex }}" }
+
+# : ]]]
+
+
+# : Indicator [[[
+
+[indicator]
+padding = { open = "█", close = "█" }
+
+# : ]]]
+
+
+# : Tabs [[[
+
+[tabs]
+active    = { fg = "#{{ primary.hex }}", bold = true, bg = "#{{ surface.hex }}" }
+inactive  = { fg = "#{{ secondary.hex }}", bg = "#{{ surface.hex }}" }
+sep_inner = { open = "[", close = "]" }
+
+# : ]]]
+
+
+# : Mode [[[
+
+[mode]
+# Mode
+normal_main = { bg = "#{{ primary.hex }}", fg = "#{{ onPrimary.hex }}", bold = true }
+normal_alt  = { bg = "#{{ surfaceVariant.hex }}", fg = "#{{ onSurfaceVariant.hex }}" }
+
+# Select mode
+select_main = { bg = "#{{ secondary.hex }}", fg = "#{{ onSecondary.hex }}", bold = true }
+select_alt  = { bg = "#{{ surfaceVariant.hex }}", fg = "#{{ onSurfaceVariant.hex }}" }
+
+# Unset mode
+unset_main = { bg = "#{{ tertiary.hex }}", fg = "#{{ onTertiary.hex }}", bold = true }
+unset_alt  = { bg = "#{{ surfaceVariant.hex }}", fg = "#{{ onSurfaceVariant.hex }}" }
+
+# : ]]]
+
+
+# : Status [[[
+
+[status]
+sep_left  = { open = "🭁", close = "🭠" }
+sep_right = { open = "🭁", close = "🭠" }
+
+# Permissions
+perm_type  = { fg = "#{{ secondary.hex }}" }
+perm_write = { fg = "#{{ tertiary.hex }}" }
+perm_read  = { fg = "#{{ error.hex }}" }
+perm_exec  = { fg = "#{{ tertiaryFixed.hex }}" }
+perm_sep   = { fg = "#{{ primaryFixed.hex }}" }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#{{ primary.hex }}", bg = "#{{ surfaceBright.hex }}" }
+progress_error  = { fg = "#{{ error.hex }}", bg = "#{{ surfaceBright.hex }}" }
+
+# : ]]]
+
+
+# : Which [[[
+
+[which]
+cols = 3
+mask = { bg = "#{{ surfaceBright.hex }}" }
+cand = { fg = "#{{ primary.hex }}" }
+rest = { fg = "#{{ onPrimary.hex }}" }
+desc = { fg = "#{{ onSurface.hex }}" }
+separator = " ▶ "
+separator_style = { fg = "#{{ onSurface.hex }}" }
+
+# : ]]]
+
+
+# : Notify [[[
+
+[notify]
+title_info  = { fg = "#{{ tertiary.hex }}" }
+title_warn  = { fg = "#{{ primary.hex }}" }
+title_error = { fg = "#{{ error.hex }}" }
+
+# : ]]]
+
+
+# : Picker [[[
+
+[pick]
+border = { fg = "#{{ primary.hex }}" }
+active = { fg = "#{{ tertiary.hex }}", bold = true }
+inactive = {}
+
+# : ]]]
+
+
+# : Input [[[
+
+[input]
+border = { fg = "#{{ primary.hex }}" }
+value  = { fg = "#{{ onSurface.hex }}" }
+
+# : ]]]
+
+
+# : Completion [[[
+
+[cmp]
+border = { fg = "#{{ primary.hex }}", bg = "#{{ onPrimary.hex }}" }
+
+# : ]]]
+
+
+# : Tasks [[[
+
+[tasks]
+border  = { fg = "#{{ primary.hex }}" }
+title   = {}
+hovered = { fg = "#{{ tertiaryFixed.hex }}", underline = true }
+
+# : ]]]
+
+
+# : Help [[[
+
+[help]
+on     = { fg = "#{{ onSurface.hex }}" }
+run    = { fg = "#{{ onSurface.hex }}" }
+footer = { fg = "#{{ onSecondary.hex }}", bg = "#{{ secondary.hex }}" }
+
+# : ]]]
+
+
+# : File-specific styles [[[
+
+[filetype]
+
+rules = [
+    # Images
+    { mime = "image/*", fg = "#94e2d5" },
+
+    # Media
+    { mime = "{audio,video}/*", fg = "#f9e2af" },
+
+    # Archives
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#f5c2e7" },
+
+    # Documents
+    { mime = "application/{pdf,doc,rtf}", fg = "#a6e3a1" },
+
+    # Special files
+    { url = "*", is = "orphan", bg = "#{{ errorContainer.hex }}" },
+    { url = "*", is = "exec", fg = "#{{ onErrorContainer.hex }}" },
+
+    # Fallback
+    { url = "*", fg = "#{{ onSurface.hex }}" },
+    { url = "*/", fg = "#{{ surfaceTint.hex }}" },
+]
+
+# : ]]]
+
+[icon]
+globs = []
+dirs  = [
+	{ name = ".config", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".git", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".github", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".npm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Desktop", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Development", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Documents", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Downloads", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Library", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Movies", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Music", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Pictures", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Public", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Videos", text = "", fg = "#{{ primary.hex }}" },
+]
+files = [
+	{ name = ".babelrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".bash_profile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".bashrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".clang-format", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".clang-tidy", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".codespellrc", text = "󰓆", fg = "#{{ primary.hex }}" },
+	{ name = ".condarc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".dockerignore", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = ".ds_store", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".editorconfig", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".env", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".eslintignore", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".eslintrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".git-blame-ignore-revs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gitattributes", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gitconfig", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gitignore", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gitlab-ci.yml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gitmodules", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gtkrc-2.0", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".gvimrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".justfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".luacheckrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".luaurc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".mailmap", text = "󰊢", fg = "#{{ primary.hex }}" },
+	{ name = ".nanorc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".npmignore", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".npmrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".nuxtrc", text = "󱄆", fg = "#{{ primary.hex }}" },
+	{ name = ".nvmrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".pnpmfile.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".pre-commit-config.yaml", text = "󰛢", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierignore", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.json5", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.toml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.yaml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".prettierrc.yml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".pylintrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".settings.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".SRCINFO", text = "󰣇", fg = "#{{ primary.hex }}" },
+	{ name = ".vimrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".Xauthority", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".xinitrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".Xresources", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".xsession", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".zprofile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".zshenv", text = "", fg = "#{{ primary.hex }}" },
+	{ name = ".zshrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "_gvimrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "_vimrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "AUTHORS", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "AUTHORS.txt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "brewfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bspwmrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "build", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "build.gradle", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "build.zig.zon", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bun.lock", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bun.lockb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cantorrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "checkhealth", text = "󰓙", fg = "#{{ primary.hex }}" },
+	{ name = "cmakelists.txt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "code_of_conduct", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "code_of_conduct.md", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "commit_editmsg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "commitlint.config.js", text = "󰜘", fg = "#{{ primary.hex }}" },
+	{ name = "commitlint.config.ts", text = "󰜘", fg = "#{{ primary.hex }}" },
+	{ name = "compose.yaml", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "compose.yml", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "config", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "containerfile", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "copying", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "copying.lesser", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Directory.Build.props", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Directory.Build.targets", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Directory.Packages.props", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "docker-compose.yaml", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "docker-compose.yml", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "dockerfile", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "eslint.config.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "eslint.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "eslint.config.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "eslint.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ext_typoscript_setup.txt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "favicon.ico", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fp-info-cache", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fp-lib-table", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "FreeCAD.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Gemfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gnumakefile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "go.mod", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "go.sum", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "go.work", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gradle-wrapper.properties", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gradle.properties", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gradlew", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "groovy", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gruntfile.babel.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gruntfile.coffee", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gruntfile.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gruntfile.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gtkrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gulpfile.babel.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gulpfile.coffee", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gulpfile.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gulpfile.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hypridle.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hyprland.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hyprlandd.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hyprlock.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hyprpaper.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hyprsunset.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "i18n.config.js", text = "󰗊", fg = "#{{ primary.hex }}" },
+	{ name = "i18n.config.ts", text = "󰗊", fg = "#{{ primary.hex }}" },
+	{ name = "i3blocks.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "i3status.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "index.theme", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ionic.config.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "Jenkinsfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "justfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kalgebrarc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kdeglobals", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kdenlive-layoutsrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kdenliverc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kritadisplayrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kritarc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "license", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "license.md", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lxde-rc.xml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lxqt.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "makefile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mix.lock", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mpv.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "next.config.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "next.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "next.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "node_modules", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "nuxt.config.cjs", text = "󱄆", fg = "#{{ primary.hex }}" },
+	{ name = "nuxt.config.js", text = "󱄆", fg = "#{{ primary.hex }}" },
+	{ name = "nuxt.config.mjs", text = "󱄆", fg = "#{{ primary.hex }}" },
+	{ name = "nuxt.config.ts", text = "󱄆", fg = "#{{ primary.hex }}" },
+	{ name = "package-lock.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "package.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "PKGBUILD", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "platformio.ini", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "playwright.config.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "playwright.config.cts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "playwright.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "playwright.config.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "playwright.config.mts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "playwright.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pnpm-lock.yaml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pnpm-workspace.yaml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pom.xml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "prettier.config.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "prettier.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "prettier.config.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "prettier.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "prisma.config.mts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "prisma.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "procfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "PrusaSlicer.ini", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "PrusaSlicerGcodeViewer.ini", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "py.typed", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "QtProject.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rakefile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "readme", text = "󰂺", fg = "#{{ primary.hex }}" },
+	{ name = "readme.md", text = "󰂺", fg = "#{{ primary.hex }}" },
+	{ name = "rmd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "robots.txt", text = "󰚩", fg = "#{{ primary.hex }}" },
+	{ name = "security", text = "󰒃", fg = "#{{ primary.hex }}" },
+	{ name = "security.md", text = "󰒃", fg = "#{{ primary.hex }}" },
+	{ name = "settings.gradle", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "svelte.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sxhkdrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sym-lib-table", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tailwind.config.js", text = "󱏿", fg = "#{{ primary.hex }}" },
+	{ name = "tailwind.config.mjs", text = "󱏿", fg = "#{{ primary.hex }}" },
+	{ name = "tailwind.config.ts", text = "󱏿", fg = "#{{ primary.hex }}" },
+	{ name = "tmux.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tmux.conf.local", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tsconfig.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "unlicense", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vagrantfile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vercel.json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vite.config.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vite.config.cts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vite.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vite.config.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vite.config.mts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vite.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vitest.config.cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vitest.config.cts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vitest.config.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vitest.config.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vitest.config.mts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vitest.config.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vlcrc", text = "󰕼", fg = "#{{ primary.hex }}" },
+	{ name = "webpack", text = "󰜫", fg = "#{{ primary.hex }}" },
+	{ name = "weston.ini", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "workspace", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wrangler.jsonc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wrangler.toml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xdph.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xmobarrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xmobarrc.hs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xmonad.hs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xorg.conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xsettingsd.conf", text = "", fg = "#{{ primary.hex }}" },
+]
+exts = [
+	{ name = "3gp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "3mf", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "7z", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "a", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "aac", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ada", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "adb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ads", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ai", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "aif", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "aiff", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "android", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ape", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "apk", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "apl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "app", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "applescript", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "asc", text = "󰦝", fg = "#{{ primary.hex }}" },
+	{ name = "asm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ass", text = "󰨖", fg = "#{{ primary.hex }}" },
+	{ name = "astro", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "avif", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "awk", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "azcli", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bak", text = "󰁯", fg = "#{{ primary.hex }}" },
+	{ name = "bash", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bat", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bazel", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bib", text = "󱉟", fg = "#{{ primary.hex }}" },
+	{ name = "bicep", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bicepparam", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bin", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "blade.php", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "blend", text = "󰂫", fg = "#{{ primary.hex }}" },
+	{ name = "blp", text = "󰺾", fg = "#{{ primary.hex }}" },
+	{ name = "bmp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bqn", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "brep", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "bz", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bz2", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bz3", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "bzl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "c", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "c++", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cache", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cast", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cbl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ccm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cfc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cfg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cfm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "clj", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cljc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cljd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cljs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cmake", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cob", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cobol", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "coffee", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "conda", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "conf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "config.ru", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cow", text = "󰆚", fg = "#{{ primary.hex }}" },
+	{ name = "cp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cpp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cppm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cpy", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cr", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "crdownload", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cs", text = "󰌛", fg = "#{{ primary.hex }}" },
+	{ name = "csh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cshtml", text = "󱦗", fg = "#{{ primary.hex }}" },
+	{ name = "cson", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "csproj", text = "󰪮", fg = "#{{ primary.hex }}" },
+	{ name = "css", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "csv", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cu", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cue", text = "󰲹", fg = "#{{ primary.hex }}" },
+	{ name = "cuh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cxx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "cxxm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "d", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "d.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "dart", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "db", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "dconf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "desktop", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "diff", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "dll", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "doc", text = "󰈬", fg = "#{{ primary.hex }}" },
+	{ name = "Dockerfile", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "dockerignore", text = "󰡨", fg = "#{{ primary.hex }}" },
+	{ name = "docx", text = "󰈬", fg = "#{{ primary.hex }}" },
+	{ name = "dot", text = "󱁉", fg = "#{{ primary.hex }}" },
+	{ name = "download", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "drl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "dropbox", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "dump", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "dwg", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "dxf", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "ebook", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ebuild", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "edn", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "eex", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ejs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "el", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "elc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "elf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "elm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "eln", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "env", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "eot", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "epp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "epub", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "erb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "erl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ex", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "exe", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "exs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "f#", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "f3d", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "f90", text = "󱈚", fg = "#{{ primary.hex }}" },
+	{ name = "fbx", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "fcbak", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fcmacro", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fcmat", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fcparam", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fcscript", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fcstd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fcstd1", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fctb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fctl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fdmdownload", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "feature", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fish", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "flac", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "flc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "flf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fnl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fodg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fodp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fods", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fodt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "frag", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fsi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fsscript", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "fsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gcode", text = "󰐫", fg = "#{{ primary.hex }}" },
+	{ name = "gd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gemspec", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "geom", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gif", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "git", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "glb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gleam", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "glsl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gnumakefile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "go", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "godot", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gpr", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gql", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gradle", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "graphql", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gresource", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "gv", text = "󱁉", fg = "#{{ primary.hex }}" },
+	{ name = "gz", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "h", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "haml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hbs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "heex", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hex", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hpp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hrl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "htm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "html", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "http", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "huff", text = "󰡘", fg = "#{{ primary.hex }}" },
+	{ name = "hurl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "hxx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ical", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "icalendar", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ico", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ics", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ifb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ifc", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "ige", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "iges", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "igs", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "image", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "img", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "import", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "info", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ini", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ino", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ipynb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "iso", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ixx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jar", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "java", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jpeg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jpg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "json", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "json5", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jsonc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jwmrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "jxl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kbx", text = "󰯄", fg = "#{{ primary.hex }}" },
+	{ name = "kdb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kdbx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kdenlive", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kdenlivetitle", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_dru", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_mod", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_pcb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_prl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_pro", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_sch", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_sym", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kicad_wks", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ko", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kpp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kra", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "krz", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ksh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "kts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lck", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "leex", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "less", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lff", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lhs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lib", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "license", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "liquid", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "lock", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "log", text = "󰌱", fg = "#{{ primary.hex }}" },
+	{ name = "lrc", text = "󰨖", fg = "#{{ primary.hex }}" },
+	{ name = "lua", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "luac", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "luau", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "m", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "m3u", text = "󰲹", fg = "#{{ primary.hex }}" },
+	{ name = "m3u8", text = "󰲹", fg = "#{{ primary.hex }}" },
+	{ name = "m4a", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "m4v", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "magnet", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "makefile", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "markdown", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "material", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "md", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "md5", text = "󰕥", fg = "#{{ primary.hex }}" },
+	{ name = "mdx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mint", text = "󰌪", fg = "#{{ primary.hex }}" },
+	{ name = "mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mk", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mkv", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mli", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mo", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mobi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mojo", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mov", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mp3", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mp4", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mpp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "msf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "mustache", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "nfo", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "nim", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "nix", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "norg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "nswag", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "nu", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "o", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "obj", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "odf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "odg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "odin", text = "󰟢", fg = "#{{ primary.hex }}" },
+	{ name = "odp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ods", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "odt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "oga", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ogg", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ogv", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ogx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "opus", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "org", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "otf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "out", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "part", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "patch", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pck", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pcm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pdf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "php", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pls", text = "󰲹", fg = "#{{ primary.hex }}" },
+	{ name = "ply", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "pm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "png", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "po", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pot", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ppt", text = "󰈧", fg = "#{{ primary.hex }}" },
+	{ name = "pptx", text = "󰈧", fg = "#{{ primary.hex }}" },
+	{ name = "prisma", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pro", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ps1", text = "󰨊", fg = "#{{ primary.hex }}" },
+	{ name = "psb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "psd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "psd1", text = "󰨊", fg = "#{{ primary.hex }}" },
+	{ name = "psm1", text = "󰨊", fg = "#{{ primary.hex }}" },
+	{ name = "pub", text = "󰷖", fg = "#{{ primary.hex }}" },
+	{ name = "pxd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pxi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "py", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pyc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pyd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pyi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pyo", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pyw", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "pyx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "qm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "qml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "qrc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "qss", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "query", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "R", text = "󰟔", fg = "#{{ primary.hex }}" },
+	{ name = "r", text = "󰟔", fg = "#{{ primary.hex }}" },
+	{ name = "rake", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rar", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rasi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "razor", text = "󱦘", fg = "#{{ primary.hex }}" },
+	{ name = "rb", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "res", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "resi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rlib", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rmd", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rproj", text = "󰗆", fg = "#{{ primary.hex }}" },
+	{ name = "rs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "rss", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "s", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sass", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sbt", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "scad", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "scala", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "scm", text = "󰘧", fg = "#{{ primary.hex }}" },
+	{ name = "scss", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sha1", text = "󰕥", fg = "#{{ primary.hex }}" },
+	{ name = "sha224", text = "󰕥", fg = "#{{ primary.hex }}" },
+	{ name = "sha256", text = "󰕥", fg = "#{{ primary.hex }}" },
+	{ name = "sha384", text = "󰕥", fg = "#{{ primary.hex }}" },
+	{ name = "sha512", text = "󰕥", fg = "#{{ primary.hex }}" },
+	{ name = "sig", text = "󰘧", fg = "#{{ primary.hex }}" },
+	{ name = "signature", text = "󰘧", fg = "#{{ primary.hex }}" },
+	{ name = "skp", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "sldasm", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "sldprt", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "slim", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sln", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "slnx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "slvs", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "sml", text = "󰘧", fg = "#{{ primary.hex }}" },
+	{ name = "so", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sol", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "spec.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "spec.jsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "spec.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "spec.tsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "spx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sql", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sqlite", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sqlite3", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "srt", text = "󰨖", fg = "#{{ primary.hex }}" },
+	{ name = "ssa", text = "󰨖", fg = "#{{ primary.hex }}" },
+	{ name = "ste", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "step", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "stl", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "stories.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stories.jsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stories.mjs", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stories.svelte", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stories.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stories.tsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stories.vue", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "stp", text = "󰻫", fg = "#{{ primary.hex }}" },
+	{ name = "strings", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "styl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sub", text = "󰨖", fg = "#{{ primary.hex }}" },
+	{ name = "sublime", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "suo", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "sv", text = "󰍛", fg = "#{{ primary.hex }}" },
+	{ name = "svelte", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "svg", text = "󰜡", fg = "#{{ primary.hex }}" },
+	{ name = "svgz", text = "󰜡", fg = "#{{ primary.hex }}" },
+	{ name = "svh", text = "󰍛", fg = "#{{ primary.hex }}" },
+	{ name = "swift", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "t", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tbc", text = "󰛓", fg = "#{{ primary.hex }}" },
+	{ name = "tcl", text = "󰛓", fg = "#{{ primary.hex }}" },
+	{ name = "templ", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "terminal", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "test.js", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "test.jsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "test.ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "test.tsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tex", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tfvars", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tgz", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tmpl", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tmux", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "toml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "torrent", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tres", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ts", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tscn", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tsconfig", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "tsx", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ttf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "twig", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "txt", text = "󰈙", fg = "#{{ primary.hex }}" },
+	{ name = "txz", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "typ", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "typoscript", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "ui", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "v", text = "󰍛", fg = "#{{ primary.hex }}" },
+	{ name = "vala", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vert", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vh", text = "󰍛", fg = "#{{ primary.hex }}" },
+	{ name = "vhd", text = "󰍛", fg = "#{{ primary.hex }}" },
+	{ name = "vhdl", text = "󰍛", fg = "#{{ primary.hex }}" },
+	{ name = "vi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vim", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vsh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vsix", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "vue", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wasm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wav", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "webm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "webmanifest", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "webp", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "webpack", text = "󰜫", fg = "#{{ primary.hex }}" },
+	{ name = "wma", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wmv", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "woff", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "woff2", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wrl", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "wrz", text = "󰆧", fg = "#{{ primary.hex }}" },
+	{ name = "wv", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "wvc", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "x", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xaml", text = "󰙳", fg = "#{{ primary.hex }}" },
+	{ name = "xcf", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xcplayground", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xcstrings", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xls", text = "󰈛", fg = "#{{ primary.hex }}" },
+	{ name = "xlsx", text = "󰈛", fg = "#{{ primary.hex }}" },
+	{ name = "xm", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xml", text = "󰗀", fg = "#{{ primary.hex }}" },
+	{ name = "xpi", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xslt", text = "󰗀", fg = "#{{ primary.hex }}" },
+	{ name = "xul", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "xz", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "yaml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "yml", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "zig", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "zip", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "zsh", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "zst", text = "", fg = "#{{ primary.hex }}" },
+	{ name = "🔥", text = "", fg = "#{{ primary.hex }}" },
+]
+conds = [
+	# Special files
+	{ if = "orphan", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "link", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "block", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "char", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "fifo", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "sock", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "sticky", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "dummy", text = "", fg = "#{{ primary.hex }}" },
+
+	# Fallback
+	{ if = "dir", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "exec", text = "", fg = "#{{ primary.hex }}" },
+	{ if = "!dir", text = "", fg = "#{{ primary.hex }}" },
+]
+# : }}}

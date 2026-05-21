@@ -9,7 +9,7 @@
                 "match": [{ "class": "feishin" }],
                 "move": true,
                 "command": [
-                    "/home/chujo/Applications/Feishin-linux-x86_64.AppImage"
+                    "feishin"
                 ]
             },
             "soundcloud": {

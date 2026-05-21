@@ -21,6 +21,15 @@ set -e __conda_setup
 # 	ssh-add ~/.ssh/id_ed25519
 # end
 
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	command yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+		builtin cd -- "$cwd"
+	end
+	command rm -f -- "$tmp"
+end
+
 # Created by `pipx` on 2025-10-28 16:29:26
 set PATH $PATH /home/chujo/.local/bin
 
@@ -32,6 +41,7 @@ fish_add_path ~/bin
 # Aliases
 alias grep='grep --color=auto'
 alias copy='wl-copy'
+alias yay="paru"
 
 alias neofetch="fastfetch -c none"
 alias startwal="systemctl --user start caelestia-wallpaper.timer"
