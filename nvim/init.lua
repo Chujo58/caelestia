@@ -158,6 +158,39 @@ require("lazy").setup({
           input = { keys = { ["<Esc>"] = { "close", mode = { "n", "i" } } } },
         },
       },
+      indent = {
+        enabled = true,
+        char = "│",
+        only_scope = false,
+        only_current = false,
+        scope = {
+          enabled = true,
+          priority = 200,
+          char = "│",
+          underline = true,
+          only_current = false,
+          hl = "SnacksIndentScope",
+        },
+        animate = {
+          enabled = vim.fn.has("nvim-0.10") == 1,
+          style = "out",
+          easing = "outQuad",
+          duration = { step = 20, total = 400 },
+        },
+        chunk = {
+          enabled = true,
+          only_current = false,
+          priority = 200,
+          hl = "SnacksIndentChunk",
+          char = {
+            corner_top = "╭",
+            corner_bottom = "╰",
+            horizontal = "─",
+            vertical = "│",
+            arrow = ">",
+          },
+        },
+      },
       -- picker = { enabled = true },
     },
   },
@@ -407,6 +440,7 @@ require("lazy").setup({
       "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
+      "kdheepak/cmp-latex-symbols",
     },
   },
   {
@@ -425,6 +459,102 @@ require("lazy").setup({
     config = function(_, opts)
       require("caelestia").setup(opts)
       vim.cmd.colorscheme("caelestia")
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+      },
+      numhl = true, -- highlights the line number instead of sign column
+      current_line_blame = true, -- inline git blame, toggle with <leader>tb
+    },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { signs = false }, -- less noise since Trouble will surface them
+    keys = {
+      { "<leader>xt", "<cmd>Trouble todo toggle<cr>", desc = "Todo (Trouble)" },
+    },
+  },
+  { "folke/flash.nvim", event = "VeryLazy", opts = {} },
+  { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
+  {
+    "GCBallesteros/jupytext.nvim",
+    opts = {
+      style = "hydrogen", -- uses # %% cell markers, works well with pylsp
+      output_extension = "py", -- open notebooks as .py
+      force_ft = "python", -- make sure treesitter/lsp kicks in
+    },
+  },
+  { "Bekaboo/dropbar.nvim", dependencies = { "nvim-telescope/telescope-fzf-native.nvim" } },
+  {
+    "nanozuki/tabby.nvim",
+    dependencies = { "viktoraxen/highlights-nvim" },
+    config = function()
+      local function tab_label(tabid)
+        local custom = require("tabby.feature.tab_name").get_raw(tabid)
+        if custom ~= "" then
+          return custom
+        end
+
+        local tabnr = vim.api.nvim_tabpage_get_number(tabid)
+        local cwd = vim.fn.getcwd(-1, tabnr)
+        local project = vim.fn.fnamemodify(cwd, ":t")
+
+        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
+          local name = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+          if name:match("^codediff://") then
+            return "  " .. project
+          end
+        end
+
+        return project
+      end
+
+      local theme = {
+        fill = "Normal",
+        head = "TabLine",
+        current_tab = "Normal",
+        tab = "TabLine",
+        win = "TabLine",
+        tail = "TabLine",
+      }
+
+      require("highlights-nvim").add({
+        customizations = {
+          ["*"] = {
+            TabLineSel = { bg = "Normal", fg = "DiagnosticHint" },
+            TabLine = { bg = "Normal", fg = "Conceal" },
+          },
+        },
+      })
+
+      require("tabby").setup({
+        line = function(line)
+          return {
+            line.spacer(),
+            line.tabs().foreach(function(tab)
+              local hl = tab.is_current() and theme.current_tab or theme.tab
+              return {
+                line.sep(" ", hl, theme.fill),
+                tab_label(tab.id),
+                line.sep(" ", hl, theme.fill),
+                hl = hl,
+                margin = "  ",
+              }
+            end),
+            line.spacer(),
+            hl = theme.fill,
+          }
+        end,
+      })
     end,
   },
 })
@@ -514,11 +644,11 @@ require("lualine").setup({
   inactive_winbar = {},
   extensions = {},
 })
-require("bufferline").setup({
-  options = {
-    diagnostics = "coc",
-  },
-})
+-- require("bufferline").setup({
+--   options = {
+--     diagnostics = "coc",
+--   },
+-- })
 require("ibl").setup()
 require("mason").setup()
 require("copilot").setup()
@@ -533,6 +663,12 @@ require("conform").setup({
     -- javascript = { "prettierd", "prettier", stop_after_first = true },
   },
 })
+require("toggleterm").setup({
+  open_mapping = [[<c-`>]],
+  direction = "horizontal",
+  size = 15,
+  shade_terminals = true,
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
@@ -540,7 +676,39 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     require("conform").format({ bufnr = args.buf })
   end,
 })
--- require("plugins")
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    if mark[1] > 0 and mark[1] <= vim.api.nvim_buf_line_count(0) then
+      vim.api.nvim_win_set_cursor(0, mark)
+    end
+  end,
+})
+vim.opt.shada = "!,'100,<50,s10,h"
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    -- local hl = vim.api.nvim_get_hl(0, { name = "@punctuation.bracket", link = false })
+    local hl = vim.api.nvim_get_hl(0, { name = "Keyword", link = false })
+    if not hl.fg then
+      hl = vim.api.nvim_get_hl(0, { name = "Delimiter", link = false })
+    end
+    local fg = hl.fg and string.format("#%06x", hl.fg) or "#80a0ff"
+
+    vim.api.nvim_set_hl(0, "SnacksIndent1", { fg = fg, nocombine = true })
+    vim.api.nvim_set_hl(0, "SnacksIndent2", { fg = fg, nocombine = true })
+    vim.api.nvim_set_hl(0, "SnacksIndentChunk", { fg = fg, bold = true, nocombine = true })
+    -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = fg, bold = true, nocombine = true })
+    local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+    local bg = normal.bg and string.format("#%06x", normal.bg) or "NONE"
+
+    vim.api.nvim_set_hl(0, "TabLineFill", { bg = bg })
+    vim.api.nvim_set_hl(0, "TabLineSel", { bg = bg, bold = true })
+    vim.api.nvim_set_hl(0, "TabLine", { bg = bg, fg = "#666666" })
+  end,
+})
+--require("plugins")
 
 vim.opt.writebackup = false
 vim.opt.conceallevel = 2
@@ -559,7 +727,8 @@ vim.opt.signcolumn = "number"
 vim.opt.colorcolumn = "99999" -- fix columns
 vim.opt.mouse = "a" -- set mouse to be on
 vim.opt.shortmess:append("c") -- no ins-completion messages
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- vim.opt.cmdheight = 0 -- status line smaller
 vim.opt.laststatus = 3
 vim.opt.breakindent = true -- break indentation for long lines
@@ -660,6 +829,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "latex_symbols" },
   }, {
     { name = "buffer" },
   }),
@@ -679,8 +849,23 @@ vim.lsp.config("pylsp", {
     ".git",
   },
   capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        jedi_hover = { enabled = true }, -- the actual docstring hover
+        jedi_completion = { enabled = true },
+        jedi_references = { enabled = true },
+        jedi_signature_help = { enabled = true }, -- shows signature while typing
+        pyflakes = { enabled = true },
+      },
+    },
+  },
 })
 vim.lsp.enable("pylsp")
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+  max_width = 80,
+})
 
 vim.lsp.config("digestif", {
   capabilities = capabilities,

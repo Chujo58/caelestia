@@ -263,7 +263,8 @@
                 }
             ]
         },
-        "logo": "caelestia"
+        "logo": "caelestia",
+        "showOverFullscreen": true
     },
     "launcher": {
         "actionPrefix": ">",
@@ -595,7 +596,7 @@
             "chargingChanged": true,
             "configLoaded": true,
             "dndChanged": true,
-            "fullscreen": "important",
+            "fullscreen": "all",
             "gameModeChanged": true,
             "kbLayoutChanged": true,
             "nowPlaying": true,
