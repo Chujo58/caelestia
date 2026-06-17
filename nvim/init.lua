@@ -358,8 +358,8 @@ require("lazy").setup({
   },
   { "mason-org/mason.nvim" },
   { "mason-org/mason-lspconfig.nvim", config = function() end },
-  { "neovim/nvim-lspconfig" },
-  { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
+  -- { "neovim/nvim-lspconfig" },
+  { "nvim-treesitter/nvim-treesitter", branch = "main", lazy = false, build = ":TSUpdate" },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -448,10 +448,6 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
-    "jay-babu/mason-null-ls.nvim",
-    dependencies = { "williamboman/mason.nvim", "nvimtools/none-ls.nvim" },
-  },
-  {
     "atdma/caelestia-nvim",
     priority = 1000, -- Load before other plugins
     lazy = false, -- Load on startup
@@ -494,69 +490,80 @@ require("lazy").setup({
     },
   },
   { "Bekaboo/dropbar.nvim", dependencies = { "nvim-telescope/telescope-fzf-native.nvim" } },
-  {
-    "nanozuki/tabby.nvim",
-    dependencies = { "viktoraxen/highlights-nvim" },
-    config = function()
-      local function tab_label(tabid)
-        local custom = require("tabby.feature.tab_name").get_raw(tabid)
-        if custom ~= "" then
-          return custom
-        end
-
-        local tabnr = vim.api.nvim_tabpage_get_number(tabid)
-        local cwd = vim.fn.getcwd(-1, tabnr)
-        local project = vim.fn.fnamemodify(cwd, ":t")
-
-        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
-          local name = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
-          if name:match("^codediff://") then
-            return "  " .. project
-          end
-        end
-
-        return project
-      end
-
-      local theme = {
-        fill = "Normal",
-        head = "TabLine",
-        current_tab = "Normal",
-        tab = "TabLine",
-        win = "TabLine",
-        tail = "TabLine",
-      }
-
-      require("highlights-nvim").add({
-        customizations = {
-          ["*"] = {
-            TabLineSel = { bg = "Normal", fg = "DiagnosticHint" },
-            TabLine = { bg = "Normal", fg = "Conceal" },
-          },
-        },
-      })
-
-      require("tabby").setup({
-        line = function(line)
-          return {
-            line.spacer(),
-            line.tabs().foreach(function(tab)
-              local hl = tab.is_current() and theme.current_tab or theme.tab
-              return {
-                line.sep(" ", hl, theme.fill),
-                tab_label(tab.id),
-                line.sep(" ", hl, theme.fill),
-                hl = hl,
-                margin = "  ",
-              }
-            end),
-            line.spacer(),
-            hl = theme.fill,
-          }
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "nanozuki/tabby.nvim",
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     local api = vim.api
+  --     local devicons = require("nvim-web-devicons")
+  --
+  --     -- icon + name
+  --     local function get_icon(bufname)
+  --       local ext = vim.fn.fnamemodify(bufname, ":e")
+  --       return devicons.get_icon(bufname, ext, { default = true })
+  --     end
+  --
+  --     local function name(tabid)
+  --       local win = api.nvim_tabpage_get_win(tabid)
+  --       local buf = api.nvim_win_get_buf(win)
+  --       local full = api.nvim_buf_get_name(buf)
+  --
+  --       if full == "" then
+  --         return "[No Name]"
+  --       end
+  --
+  --       return vim.fn.fnamemodify(full, ":t")
+  --     end
+  --
+  --     local function modified(tabid)
+  --       local win = api.nvim_tabpage_get_win(tabid)
+  --       local buf = api.nvim_win_get_buf(win)
+  --       return vim.bo[buf].modified and " ●" or ""
+  --     end
+  --
+  --     local function close_button()
+  --       return " 󰅖"
+  --     end
+  --
+  --     local hl = {
+  --       fill = "TabLineFill",
+  --       tab = "TabLine",
+  --       sel = "TabLineSel",
+  --     }
+  --
+  --     require("tabby").setup({
+  --       line = function(line)
+  --         return {
+  --           line.spacer(),
+  --
+  --           line.tabs().foreach(function(tab)
+  --             local is_current = tab.is_current()
+  --             local hi = is_current and hl.sel or hl.tab
+  --
+  --             local bufname = name(tab.id)
+  --             local icon = get_icon(bufname)
+  --
+  --             return {
+  --               line.sep(" ", hi, hl.fill),
+  --
+  --               {
+  --                 icon .. " " .. bufname .. modified(tab.id) .. close_button(),
+  --                 hl = hi,
+  --               },
+  --
+  --               line.sep(" ", hi, hl.fill),
+  --
+  --               margin = "  ",
+  --             }
+  --           end),
+  --
+  --           line.spacer(),
+  --           hl = hl.fill,
+  --         }
+  --       end,
+  --     })
+  --   end,
+  -- },
 })
 
 -- require("pywal").setup()
@@ -644,11 +651,11 @@ require("lualine").setup({
   inactive_winbar = {},
   extensions = {},
 })
--- require("bufferline").setup({
---   options = {
---     diagnostics = "coc",
---   },
--- })
+require("bufferline").setup({
+  options = {
+    diagnostics = "coc",
+  },
+})
 require("ibl").setup()
 require("mason").setup()
 require("copilot").setup()
@@ -834,58 +841,136 @@ cmp.setup({
     { name = "buffer" },
   }),
 })
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- LSP servers:
-vim.lsp.config("pylsp", {
-  cmd = { "pylsp" },
-  filetypes = { "python" },
-  root_markers = {
-    "pyproject.toml",
-    "setup.py",
-    "setup.cfg",
-    "requirements.txt",
-    "Pipfile",
-    ".git",
-  },
-  capabilities = capabilities,
-  settings = {
-    pylsp = {
-      plugins = {
-        jedi_hover = { enabled = true }, -- the actual docstring hover
-        jedi_completion = { enabled = true },
-        jedi_references = { enabled = true },
-        jedi_signature_help = { enabled = true }, -- shows signature while typing
-        pyflakes = { enabled = true },
+local servers = {
+  pylsp = {
+    cmd = { "pylsp" },
+    filetypes = { "python" },
+    root_markers = {
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg",
+      "requirements.txt",
+      "Pipfile",
+      ".git",
+    },
+    settings = {
+      pylsp = {
+        plugins = {
+          jedi_hover = { enabled = true },
+          jedi_completion = { enabled = true },
+          jedi_references = { enabled = true },
+          jedi_signature_help = { enabled = true },
+          pyflakes = { enabled = true },
+        },
       },
     },
   },
-})
-vim.lsp.enable("pylsp")
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-  max_width = 80,
-})
 
-vim.lsp.config("digestif", {
-  capabilities = capabilities,
-})
-vim.lsp.enable("digestif")
+  digestif = {
+    cmd = { "digestif" },
+    filetypes = { "tex", "plaintex" },
+  },
+
+  qml = {
+    cmd = { "qml-language-server" },
+    filetypes = { "qml" },
+    root_markers = {
+      "qmldir",
+      "qml",
+      "shell.qml",
+      "CMakeLists.txt",
+      ".git",
+    },
+  },
+}
+
+for name, config in pairs(servers) do
+  config.capabilities = capabilities
+
+  vim.lsp.config(name, config)
+  vim.lsp.enable(name)
+end
 
 local null_ls = require("null-ls")
 
 null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.proselint.with({
-      filetypes = { "markdown", "text", "tex" }, -- adjust if you want it elsewhere
+      filetypes = {
+        "markdown",
+        "text",
+        "tex",
+      },
     }),
   },
 })
 
-require("mason-null-ls").setup({
-  ensure_installed = { "proselint" },
-  automatic_installation = true,
-})
+vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+  config = vim.tbl_deep_extend("force", config or {}, {
+    border = "rounded",
+    max_width = 80,
+  })
+
+  return vim.lsp.handlers.hover(err, result, ctx, config)
+end
+-- LSP servers:
+-- vim.lsp.config("pylsp", {
+--   cmd = { "pylsp" },
+--   filetypes = { "python" },
+--   root_markers = {
+--     "pyproject.toml",
+--     "setup.py",
+--     "setup.cfg",
+--     "requirements.txt",
+--     "Pipfile",
+--     ".git",
+--   },
+--   capabilities = capabilities,
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         jedi_hover = { enabled = true }, -- the actual docstring hover
+--         jedi_completion = { enabled = true },
+--         jedi_references = { enabled = true },
+--         jedi_signature_help = { enabled = true }, -- shows signature while typing
+--         pyflakes = { enabled = true },
+--       },
+--     },
+--   },
+-- })
+-- vim.lsp.enable("pylsp")
+--
+-- vim.lsp.config("digestif", {
+--   capabilities = capabilities,
+-- })
+-- vim.lsp.enable("digestif")
+--
+-- local null_ls = require("null-ls")
+--
+-- null_ls.setup({
+--   sources = {
+--     null_ls.builtins.diagnostics.proselint.with({
+--       filetypes = { "markdown", "text", "tex" }, -- adjust if you want it elsewhere
+--     }),
+--   },
+-- })
+--
+-- require("mason-null-ls").setup({
+--   ensure_installed = { "proselint" },
+--   automatic_installation = true,
+-- })
+--
+-- vim.lsp.config("qml-language-server", {
+--   cmd = { "qml-language-server" },
+--   filetypes = { "qml" },
+--   root_markers = { { "qmldir", "shell.qml" }, ".git" },
+--   capabilities = capabilities,
+-- })
+-- vim.lsp.enable("qml-language-server")
+
 -- === DIAGNOSTICS CONFIG ===
 vim.diagnostic.config({
   -- 💬 short inline summary
@@ -922,7 +1007,14 @@ vim.diagnostic.config({
 -- 🧭 show wrapped diagnostic float when you pause cursor
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
+    -- diagnostics
     vim.diagnostic.open_float(nil, { focus = false })
+
+    -- LSP hover
+    vim.lsp.buf.hover({
+      border = "rounded",
+      focus = false,
+    })
   end,
 })
 
