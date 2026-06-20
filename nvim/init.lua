@@ -772,6 +772,7 @@ vim.opt.cursorlineopt = "number"
 vim.opt.showmode = false
 vim.opt.virtualedit = "all"
 vim.opt.shell = "/usr/bin/fish"
+vim.opt.clipboard = "unnamedplus"
 
 -- LaTeX stuff
 vim.g.vimtex_quickfix_mode = 0
