@@ -11,3 +11,6 @@
 /fish/conf.d/
 
 .SRCINFO
+
+caelestia/monitors
+.vscode

@@ -1,0 +1,103 @@
+{
+    "toggles": {
+        "music": {
+            "spotify": {
+                "enable": false
+            },
+            "feishin": {
+                "enable": true,
+                "match": [{ "class": "feishin" }],
+                "move": true,
+                "command": [
+                    "feishin"
+                ]
+            },
+            "soundcloud": {
+                "enable": true,
+                "match": [{ "class": "chrome-soundcloud.com__-Default" }],
+                "move": true
+            }
+        },
+        "google": {
+            "routine": {
+                "enable": true,
+                "match": [
+                    {
+                        "class": "Routine"
+                    }
+                ],
+                "move": true
+            },
+            "calendar": {
+                "enable": true,
+                "match": [
+                    { "class": "chrome-calendar.google.com__calendar-Default" }
+                ],
+
+                "move": true
+            },
+            "mail": {
+                "enable": true,
+                "match": [{ "class": "chrome-mail.google.com__mail_-Default" }],
+
+                "move": true
+            }
+        },
+        "steam": {
+            "steamapp": {
+                "enable": true,
+                "match": [{ "title": "Steam" }],
+                "move": true
+            }
+        },
+        "on_together": {
+            "game": {
+                "enable": true,
+                "match": [{ "initialTitle": "On-Together" }],
+                "move": true
+            }
+        },
+        "todo": {
+            "todoist": {
+                "enable": true,
+                "match": [{ "class": "Todoist" }],
+                "move": true
+            },
+            "notion": {
+                "enable": true,
+                "match": [{ "class": "chrome-www.notion.so__-Default" }],
+                "move": true
+            },
+            "obsidian": {
+                "enable": true,
+                "match": [{"class": "obsidian"}],
+                "move": true,
+                "command": ["obsidian"]
+            }
+        },
+        "communication": {
+            "discord": {
+                "enable": true,
+                "match": [{ "class": "discord" }],
+                "command": ["discord"],
+                "move": true
+            },
+            "slack": {
+                "enable": true,
+                "match": [{ "class": "slack" }],
+                "move": true
+            },
+            "zapzap": {
+                "enable": true,
+                "match": [{"class": "com.rtosta.zapzap"}],
+                "move": true
+            }
+        }
+    },
+    "wallpaper": {
+        "postHook": "~/.config/caelestia/posthooks/wallpaper.sh"
+    },
+    "theme": {
+        "postHook": "~/.config/caelestia/posthooks/theme.sh"
+    }
+}
