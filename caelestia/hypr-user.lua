@@ -1,6 +1,14 @@
 local vars = require("variables")
 require("hypr-unbinds")
 
+-- Grayscale config
+hl.config({
+    decoration = {
+        -- screen_shader = "~/.config/caelestia/grayscale.glsl",
+        screen_shader = "",
+    },
+})
+
 -- Custom execs
 hl.on("hyprland.start", function()
     -- Auto-Start setup
@@ -109,6 +117,20 @@ hl.bind("SUPER + TAB", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"
 
 hl.bind("CTRL + SUPER + UP", hl.dsp.exec_cmd("caelestia shell hypr cycleSpecialWorkspace prev"))
 hl.bind("CTRL + SUPER + DOWN", hl.dsp.exec_cmd("caelestia shell hypr cycleSpecialWorkspace next"))
+
+-- Bind for the grayscale toggle
+hl.bind("SUPER + F12", function()
+    local shader = hl.get_config("decoration.screen_shader")
+    if shader == "" or shader == "[[EMPTY]]" then
+        hl.exec_cmd(
+            [[hyprctl eval 'hl.config({ decoration = { screen_shader = "]]
+                .. os.getenv("HOME")
+                .. [[/.config/caelestia/grayscale.glsl" } })']]
+        )
+    else
+        hl.exec_cmd([[hyprctl eval 'hl.config({ decoration = { screen_shader = "" } })']])
+    end
+end)
 
 -- Scrolling layout fit active window
 hl.bind("SUPER + ALT + X", hl.dsp.layout("fit active"))
