@@ -8,9 +8,9 @@
         },
         "font": {
             "family": {
-                "main": "Rubik",
-                "title": "Rubik",
-                "expressive": "Rubik"
+                "main": "GoogleSansFlex",
+                "title": "GoogleSansFlex",
+                "expressive": "GoogleSansFlex"
             }
 
         }

@@ -12,8 +12,8 @@ hl.config({
 -- Custom execs
 hl.on("hyprland.start", function()
     -- Auto-Start setup
-    hl.exec_cmd("sleep 2 && hyprctl dispatch global caelestia:lock")
-    hl.exec_cmd("/home/chujo/.config/caelestia/scripts/start-keyring.sh")
+    hl.exec_cmd("sleep 2 && caelestia shell lock lock")
+    -- hl.exec_cmd("/home/chujo/.config/caelestia/scripts/start-keyring.sh")
     hl.exec_cmd("wluma -c ~/.config/wluma/config.toml")
     hl.exec_cmd("arch-update --tray")
     hl.exec_cmd("/home/chujo/.config/caelestia/scripts/launch_overview.sh")

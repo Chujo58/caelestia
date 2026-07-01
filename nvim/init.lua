@@ -115,16 +115,16 @@ require("lazy").setup({
             },
           },
           header = [[
-                                                                       
-  ██████   █████                   █████   █████  ███                  
- ░░██████ ░░███                   ░░███   ░░███  ░░░                   
-  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   
-  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  
-  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  
-  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  
-  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ 
- ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  
-                                                                       
+
+  ██████   █████                   █████   █████  ███
+ ░░██████ ░░███                   ░░███   ░░███  ░░░
+  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████
+  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███
+  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███
+  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███
+  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████
+ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░
+
                      λ it be like that sometimes λ                     ]],
         },
         formats = {
@@ -490,80 +490,30 @@ require("lazy").setup({
     },
   },
   { "Bekaboo/dropbar.nvim", dependencies = { "nvim-telescope/telescope-fzf-native.nvim" } },
-  -- {
-  --   "nanozuki/tabby.nvim",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   config = function()
-  --     local api = vim.api
-  --     local devicons = require("nvim-web-devicons")
-  --
-  --     -- icon + name
-  --     local function get_icon(bufname)
-  --       local ext = vim.fn.fnamemodify(bufname, ":e")
-  --       return devicons.get_icon(bufname, ext, { default = true })
-  --     end
-  --
-  --     local function name(tabid)
-  --       local win = api.nvim_tabpage_get_win(tabid)
-  --       local buf = api.nvim_win_get_buf(win)
-  --       local full = api.nvim_buf_get_name(buf)
-  --
-  --       if full == "" then
-  --         return "[No Name]"
-  --       end
-  --
-  --       return vim.fn.fnamemodify(full, ":t")
-  --     end
-  --
-  --     local function modified(tabid)
-  --       local win = api.nvim_tabpage_get_win(tabid)
-  --       local buf = api.nvim_win_get_buf(win)
-  --       return vim.bo[buf].modified and " ●" or ""
-  --     end
-  --
-  --     local function close_button()
-  --       return " 󰅖"
-  --     end
-  --
-  --     local hl = {
-  --       fill = "TabLineFill",
-  --       tab = "TabLine",
-  --       sel = "TabLineSel",
-  --     }
-  --
-  --     require("tabby").setup({
-  --       line = function(line)
-  --         return {
-  --           line.spacer(),
-  --
-  --           line.tabs().foreach(function(tab)
-  --             local is_current = tab.is_current()
-  --             local hi = is_current and hl.sel or hl.tab
-  --
-  --             local bufname = name(tab.id)
-  --             local icon = get_icon(bufname)
-  --
-  --             return {
-  --               line.sep(" ", hi, hl.fill),
-  --
-  --               {
-  --                 icon .. " " .. bufname .. modified(tab.id) .. close_button(),
-  --                 hl = hi,
-  --               },
-  --
-  --               line.sep(" ", hi, hl.fill),
-  --
-  --               margin = "  ",
-  --             }
-  --           end),
-  --
-  --           line.spacer(),
-  --           hl = hl.fill,
-  --         }
-  --       end,
-  --     })
-  --   end,
-  -- },
+  {
+    "benlubas/molten-nvim",
+    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+    dependencies = { "3rd/image.nvim" },
+    build = ":UpdateRemotePlugins",
+    init = function()
+      -- these are examples, not defaults. Please see the readme
+      vim.g.molten_image_provider = "image.nvim"
+      vim.g.molten_output_win_max_height = 20
+    end,
+  },
+  {
+    -- see the image.nvim readme for more information about configuring this plugin
+    "3rd/image.nvim",
+    opts = {
+      backend = "kitty", -- whatever backend you would like to use
+      max_width = 100,
+      max_height = 12,
+      max_height_window_percentage = math.huge,
+      max_width_window_percentage = math.huge,
+      window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
+      window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+    },
+  },
 })
 
 -- require("pywal").setup()
@@ -865,6 +815,10 @@ local servers = {
           jedi_references = { enabled = true },
           jedi_signature_help = { enabled = true },
           pyflakes = { enabled = true },
+          autopep8 = { enabled = false },
+          yapf = { enabled = false },
+          mccabe = { enabled = false },
+          black = { enabled = true },
         },
       },
     },
@@ -917,60 +871,6 @@ vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
 
   return vim.lsp.handlers.hover(err, result, ctx, config)
 end
--- LSP servers:
--- vim.lsp.config("pylsp", {
---   cmd = { "pylsp" },
---   filetypes = { "python" },
---   root_markers = {
---     "pyproject.toml",
---     "setup.py",
---     "setup.cfg",
---     "requirements.txt",
---     "Pipfile",
---     ".git",
---   },
---   capabilities = capabilities,
---   settings = {
---     pylsp = {
---       plugins = {
---         jedi_hover = { enabled = true }, -- the actual docstring hover
---         jedi_completion = { enabled = true },
---         jedi_references = { enabled = true },
---         jedi_signature_help = { enabled = true }, -- shows signature while typing
---         pyflakes = { enabled = true },
---       },
---     },
---   },
--- })
--- vim.lsp.enable("pylsp")
---
--- vim.lsp.config("digestif", {
---   capabilities = capabilities,
--- })
--- vim.lsp.enable("digestif")
---
--- local null_ls = require("null-ls")
---
--- null_ls.setup({
---   sources = {
---     null_ls.builtins.diagnostics.proselint.with({
---       filetypes = { "markdown", "text", "tex" }, -- adjust if you want it elsewhere
---     }),
---   },
--- })
---
--- require("mason-null-ls").setup({
---   ensure_installed = { "proselint" },
---   automatic_installation = true,
--- })
---
--- vim.lsp.config("qml-language-server", {
---   cmd = { "qml-language-server" },
---   filetypes = { "qml" },
---   root_markers = { { "qmldir", "shell.qml" }, ".git" },
---   capabilities = capabilities,
--- })
--- vim.lsp.enable("qml-language-server")
 
 -- === DIAGNOSTICS CONFIG ===
 vim.diagnostic.config({
