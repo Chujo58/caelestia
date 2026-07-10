@@ -225,7 +225,7 @@
                     "level": 80,
                     "message": "You might want to unplug the charger",
                     "title": "High battery",
-                    "warned": false
+                    "warned": true
                 },
                 {
                     "enabled": true,
@@ -276,7 +276,7 @@
                 },
                 {
                     "critical": false,
-                    "enabled": true,
+                    "enabled": false,
                     "icon": "battery_android_4",
                     "level": 68,
                     "message": "hallo there",

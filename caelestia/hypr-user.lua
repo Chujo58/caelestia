@@ -167,3 +167,14 @@ hl.window_rule({ match = { class = "thunar", workspace = "special:communication"
 
 hl.window_rule({ match = { class = "Todoist|cohesion|obsidian" }, workspace = "special:todo" })
 hl.window_rule({ match = { initial_title = "On-Together" }, workspace = "special:on_together" })
+
+-- Plugins
+if hl.plugin.dynamic_cursors then
+    hl.config({plugin = {dynamic_cursors = {
+        enabled = true,
+        mode = "none",
+    }}})
+
+    -- Add a keybind to zoom into the mouse
+    hl.bind("SUPER + CTRL + Z", hl.plugin.dynamic_cursors.dsp_magnify({ duration = 2000, size = 4.0 }))
+end

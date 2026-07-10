@@ -1,12 +1,12 @@
 #!/bin/bash
 
 cat ~/.local/state/caelestia/scheme.json | jq -r '[
-  .colours.background, 
-  .colours.surfaceContainerHigh,
+  .colours.primaryFixedDim,
   .colours.primaryContainer,
+  .colours.surfaceContainerHighest,
   .colours.onPrimaryContainer,
-  .colours.surfaceContainerLow,
-  .colours.text,
+  .colours.surfaceContainerHigh,
+  .colours.onPrimaryFixed,
   .colours.success,
   .colours.error
 ] | map("#" + .) | join(",")'
