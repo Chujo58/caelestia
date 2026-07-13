@@ -115,7 +115,8 @@
         "excludedScreens": [
             "DP-1",
             "DP-2",
-            "DP-3"
+            "DP-3",
+            "DP-4"
         ],
         "persistent": true,
         "popouts": {
@@ -218,72 +219,7 @@
             ]
         },
         "battery": {
-            "chargingWarnLevels": [
-                {
-                    "enabled": true,
-                    "icon": "battery_android_5",
-                    "level": 80,
-                    "message": "You might want to unplug the charger",
-                    "title": "High battery",
-                    "warned": true
-                },
-                {
-                    "enabled": true,
-                    "icon": "battery_android_6",
-                    "level": 90,
-                    "message": "You should probably unplug the charger <b>now</b>",
-                    "title": "Did you see the previous message?",
-                    "warned": false
-                },
-                {
-                    "critical": true,
-                    "enabled": true,
-                    "icon": "battery_android_alert",
-                    "level": 95,
-                    "message": "UNPLUG THE CHARGER RIGHT NOW!!",
-                    "title": "Critical battery level",
-                    "warned": false
-                }
-            ],
-            "criticalLevel": 5,
-            "enableHighBatteryWarning": true,
-            "enableLowBatteryWarning": true,
-            "lowBatteryWarnLevels": [
-                {
-                    "enabled": true,
-                    "icon": "battery_android_2",
-                    "level": 25,
-                    "message": "You might want to plug in a charger",
-                    "title": "Low battery",
-                    "warned": false
-                },
-                {
-                    "enabled": true,
-                    "icon": "battery_android_1",
-                    "level": 15,
-                    "message": "You should probably plug in a charger <b>now</b>",
-                    "title": "Did you see the previous message?",
-                    "warned": false
-                },
-                {
-                    "critical": true,
-                    "enabled": true,
-                    "icon": "battery_android_alert",
-                    "level": 10,
-                    "message": "PLUG THE CHARGER RIGHT NOW!!",
-                    "title": "Critical battery level",
-                    "warned": false
-                },
-                {
-                    "critical": false,
-                    "enabled": false,
-                    "icon": "battery_android_4",
-                    "level": 68,
-                    "message": "hallo there",
-                    "title": "again? ",
-                    "warned": false
-                }
-            ]
+            "criticalLevel": 5
         },
         "idle": {
             "inhibitWhenAudio": true,

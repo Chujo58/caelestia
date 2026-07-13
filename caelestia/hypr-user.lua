@@ -70,8 +70,14 @@ hl.gesture({
 
 hl.gesture({
     fingers = vars.gestureFingersMore,
-    direction = "pinch",
+    direction = "pinchout",
     action = "float",
+})
+
+hl.gesture({
+    fingers = vars.gestureFingersMore,
+    direction = "pinchin",
+    action = "fullscreen"
 })
 
 hl.gesture({
@@ -145,7 +151,7 @@ hl.bind(vars.kbOnTogetherWs, hl.dsp.exec_cmd("caelestia toggle on_together"))
 
 -- Utilities keybinds
 hl.bind(vars.kbSettings, hl.dsp.exec_cmd("caelestia shell nexus open"))
-hl.bind(vars.kbKeepAwake, hl.dsp.exec_cmd("caelestia shell idleInhibitor toggle"))
+hl.bind(vars.kbKeepAwake, hl.dsp.exec_cmd("/home/chujo/.config/caelestia/scripts/toggle_keepawake.sh"))
 hl.bind(vars.kbRandomWallpaper, hl.dsp.exec_cmd("caelestia wallpaper -r"))
 hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("/home/chujo/.config/caelestia/scripts/snip_to_search.sh"))
 hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("/home/chujo/.config/caelestia/scripts/snip_to_select.sh"))
@@ -154,7 +160,7 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.global("caelestia:screenshotFreeze"))
 
 -- Workspace Rules
 hl.workspace_rule({ workspace = "special:special", layout = "scrolling" })
-hl.workspace_rule({ workspace = "special:communication", layout = "scrolling" })
+hl.workspace_rule({ workspace = "special:communication", layout = "monocle" })
 hl.workspace_rule({ workspace = "special:music", layout = "monocle" })
 hl.workspace_rule({ workspace = "special:sysmon", layout = "monocle" })
 
@@ -167,6 +173,23 @@ hl.window_rule({ match = { class = "thunar", workspace = "special:communication"
 
 hl.window_rule({ match = { class = "Todoist|cohesion|obsidian" }, workspace = "special:todo" })
 hl.window_rule({ match = { initial_title = "On-Together" }, workspace = "special:on_together" })
+-- hl.window_rule({
+--     match = {
+--         class = "steam_app_3707400",
+--     },
+--     float = true,
+--     fullscreen = false,
+--     fullscreen_state = 0,
+--     suppress_event = "fullscreen fullscreenoutput",
+--     size = { 800, 600 },
+--     no_blur = true,
+--     opaque = false,
+--     rounding = 0,
+--     border_size = 0,
+--     no_anim = true,
+--     tag = "+hyprglass_disabled"
+-- })
+
 
 -- Plugins
 if hl.plugin.dynamic_cursors then
