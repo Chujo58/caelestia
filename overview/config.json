@@ -16,10 +16,11 @@
         }
     },
     "overview": {
-        "showSpecialWorkspaces": false,
+        "showSpecialWorkspaces": true,
         "specialWorkspaces": ["special", "music"],
         "specialWorkspaceColumns": 5,
         "emptyWorkspaceWallpaper": "/home/chujo/Pictures/current_wallpaper.png",
+        "specialEmptyWorkspaceWallpaper": "/home/chujo/Pictures/current_wallpaper.png",
         "effects": {
         "emptyWorkspaceWallpaperOverlayOpacity": 0.12
         }

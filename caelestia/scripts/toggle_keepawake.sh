@@ -2,7 +2,7 @@
 
 caelestia shell idleInhibitor toggle
 if [[ "$(caelestia shell idleInhibitor isEnabled)" = "true" ]]; then
-    caelestia shell toaster info "Keep awake" "Turned on!" "coffee"
+    caelestia shell toaster success "Keep awake" "Turned on!" "coffee"
 else
-    caelestia shell toaster info "Keep awake" "Turned off!" "coffee"
+    caelestia shell toaster warn "Keep awake" "Turned off!" "coffee"
 fi

@@ -67,3 +67,5 @@ abbr vim 'nvim'
 export LD_LIBRARY_PATH="/usr/lib"
 # export LD_LIBRARY_PATH=/opt/conda/lib:$LD_LIBRARY_PATH
 export EDITOR="nvim"
+
+set -gx LASTFM_API_KEY '32a3a64b867ca0e657cd109f72dd8acd'
