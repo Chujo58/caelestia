@@ -69,16 +69,30 @@ hl.gesture({
 })
 
 hl.gesture({
-    fingers = vars.gestureFingersMore,
-    direction = "pinchout",
-    action = "float",
+    fingers= vars.gestureFingersMore,
+    direction="pinchin",
+    action = function()
+        hl.exec_cmd("~/.config/caelestia/scripts/finger_gesture.sh outward")
+    end,
 })
-
 hl.gesture({
-    fingers = vars.gestureFingersMore,
-    direction = "pinchin",
-    action = "fullscreen"
+    fingers= vars.gestureFingersMore,
+    direction="pinchout",
+    action = function()
+        hl.exec_cmd("~/.config/caelestia/scripts/finger_gesture.sh inward")
+    end,
 })
+-- hl.gesture({
+--     fingers = vars.gestureFingersMore,
+--     direction = "pinchout",
+--     action = "float",
+-- })
+
+-- hl.gesture({
+--     fingers = vars.gestureFingersMore,
+--     direction = "pinchin",
+--     action = "fullscreen"
+-- })
 
 hl.gesture({
     fingers = vars.gestureFingersMore,
