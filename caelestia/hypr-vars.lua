@@ -3,7 +3,7 @@ return {
     terminal = "kitty",
     browser = "zen-browser",
     editor = "code",
-    fileExplorer = "thunar",
+    fileExplorer = "atlas",
 
     -- Touchpad
     touchScrollFactor = 0.7,

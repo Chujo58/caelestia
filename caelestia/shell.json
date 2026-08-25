@@ -130,16 +130,28 @@
             "workspaces": true
         },
         "showOnHover": true,
-        "status": {
-            "showAudio": true,
-            "showBattery": true,
-            "showBluetooth": true,
-            "showKbLayout": true,
-            "showLockStatus": true,
-            "showMicrophone": false,
-            "showNetwork": true,
-            "showWifi": false
-        },
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "audio"
+            },
+            {
+                "enabled": true,
+                "id": "kbLayout"
+            },
+            {
+                "enabled": true,
+                "id": "network"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "battery"
+            }
+        ],
         "tray": {
             "background": true,
             "compact": false,
@@ -155,13 +167,12 @@
             "activeTrail": false,
             "capitalisation": "preserve",
             "label": "  ",
-            "maxWindowIcons": 0,
+            "maxWindowIcons": 5,
             "occupiedBg": true,
             "occupiedLabel": "󰮯",
             "perMonitorWorkspaces": true,
             "showWindows": true,
             "showWindowsOnSpecialWorkspaces": true,
-            "shown": 5,
             "specialWorkspaceIcons": [
                 {
                     "icon": "sports_esports",
@@ -223,7 +234,7 @@
                 {
                     "enabled": true,
                     "icon": "battery_android_5",
-                    "level": 85,
+                    "level": 80,
                     "message": "You might want to unplug the charger",
                     "title": "High battery",
                     "warned": false
@@ -248,6 +259,7 @@
             ],
             "criticalLevel": 5,
             "enableHighBatteryWarning": true,
+            "enableLowBatteryWarning": true,
             "framedMaterialIcons": false,
             "lowBatteryWarnLevels": [
                 {
@@ -485,6 +497,17 @@
                 "enabled": true,
                 "icon": "image",
                 "name": "StopWal"
+            },
+            {
+                "command": [
+                    "code",
+                    "/home/chujo/.local/share/caelestia"
+                ],
+                "dangerous": false,
+                "description": "Edit the shell's configuration",
+                "enabled": true,
+                "icon": "settings",
+                "name": "Configuration"
             }
         ],
         "dragThreshold": 50,
@@ -542,7 +565,6 @@
     },
     "paths": {
         "lockNoNotifsPic": "root:/assets/dino.png",
-        "lowBatNotifSound": "root:/assets/LowBattery.ogg",
         "lyricsDir": "/home/chujo/Music/lyrics/",
         "mediaGif": "root:/assets/bongocat.gif",
         "noNotifsPic": "root:/assets/dino.png",
@@ -656,7 +678,7 @@
             "vpnChanged": true
         },
         "vpn": {
-            "enabled": false,
+            "enabled": true,
             "provider": [
                 {
                     "displayName": "Tailscale",

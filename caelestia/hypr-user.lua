@@ -12,7 +12,7 @@ hl.config({
 -- Custom execs
 hl.on("hyprland.start", function()
     -- Auto-Start setup
-    hl.exec_cmd("sleep 2 && caelestia shell lock lock")
+    -- hl.exec_cmd("sleep 2 && caelestia shell lock lock")
     hl.exec_cmd("wluma -c ~/.config/wluma/config.toml")
     hl.exec_cmd("arch-update --tray")
     hl.exec_cmd("/home/chujo/.config/caelestia/scripts/launch_overview.sh")
@@ -69,15 +69,15 @@ hl.gesture({
 })
 
 hl.gesture({
-    fingers= vars.gestureFingersMore,
-    direction="pinchin",
+    fingers = vars.gestureFingersMore,
+    direction = "pinchin",
     action = function()
         hl.exec_cmd("~/.config/caelestia/scripts/finger_gesture.sh outward")
     end,
 })
 hl.gesture({
-    fingers= vars.gestureFingersMore,
-    direction="pinchout",
+    fingers = vars.gestureFingersMore,
+    direction = "pinchout",
     action = function()
         hl.exec_cmd("~/.config/caelestia/scripts/finger_gesture.sh inward")
     end,
@@ -186,32 +186,46 @@ hl.window_rule({ match = { class = "^(slack|com.rtosta.zapzap)$" }, workspace = 
 hl.window_rule({ match = { class = "thunar", workspace = "special:communication" }, float = true, size = { 1200, 800 } })
 
 hl.window_rule({ match = { class = "Todoist|cohesion|obsidian" }, workspace = "special:todo" })
-hl.window_rule({ match = { initial_title = "On-Together" }, workspace = "special:on_together" })
--- hl.window_rule({
---     match = {
---         class = "steam_app_3707400",
---     },
---     float = true,
---     fullscreen = false,
---     fullscreen_state = 0,
---     suppress_event = "fullscreen fullscreenoutput",
---     size = { 800, 600 },
---     no_blur = true,
---     opaque = false,
---     rounding = 0,
---     border_size = 0,
---     no_anim = true,
---     tag = "+hyprglass_disabled"
--- })
 
+hl.window_rule({ match = { initial_title = "On-Together" }, workspace = "special:on_together" })
+hl.window_rule({
+    match = {
+        class = "steam_app_3707400",
+    },
+    float = true,
+    fullscreen = false,
+    fullscreen_state = 0,
+    suppress_event = "fullscreen fullscreenoutput",
+    size = { 800, 600 },
+    no_blur = true,
+    opaque = false,
+    rounding = 0,
+    border_size = 0,
+    no_anim = true,
+    tag = "+hyprglass_disabled",
+})
 
 -- Plugins
 if hl.plugin.dynamic_cursors then
-    hl.config({plugin = {dynamic_cursors = {
+    hl.config({ plugin = { dynamic_cursors = {
         enabled = true,
         mode = "none",
-    }}})
+    } } })
 
     -- Add a keybind to zoom into the mouse
     hl.bind("SUPER + CTRL + Z", hl.plugin.dynamic_cursors.dsp_magnify({ duration = 2000, size = 4.0 }))
 end
+
+hl.window_rule({
+    match = { title = ".*Atlas File Picker.*" },
+    float = true,
+    center = true,
+    size = {1000, 620},
+})
+
+hl.window_rule({
+    match = {class = "wormhole"},
+    float = true,
+    center = true,
+    size = {1000, 620}
+})

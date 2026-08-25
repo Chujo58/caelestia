@@ -7,3 +7,6 @@ echo $SCHEME_COLOURS
 
 ~/.config/caelestia/posthooks/cursor.sh
 ~/.config/caelestia/posthooks/slack.sh
+
+# Caelestia Greeter Dynamic theme sync.
+sudo -n caelestia-greeter --sync

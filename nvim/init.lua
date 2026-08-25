@@ -853,6 +853,15 @@ local null_ls = require("null-ls")
 
 null_ls.setup({
   sources = {
+    null_ls.builtins.diagnostics.languagetool.with({
+      filetypes = { "markdown", "tex", "latex" },
+      args = {
+        "--api-url",
+        "http://localhost:8010/v2/check", -- Pointing to your systemd port override
+        "--language",
+        "en-US",
+      },
+    }),
     null_ls.builtins.diagnostics.proselint.with({
       filetypes = {
         "markdown",

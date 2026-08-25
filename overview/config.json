@@ -16,7 +16,7 @@
         }
     },
     "overview": {
-        "showSpecialWorkspaces": true,
+        "showSpecialWorkspaces": false,
         "specialWorkspaces": ["special", "music"],
         "specialWorkspaceColumns": 5,
         "emptyWorkspaceWallpaper": "/home/chujo/Pictures/current_wallpaper.png",
